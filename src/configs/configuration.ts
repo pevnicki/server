@@ -5,5 +5,6 @@ export default registerAs('app', () => ({
   port: process.env.PORT,
   thingsBoardHost: process.env.THINGS_BOARD_HOST,
   corsightHost: process.env.CORSIGHT_HOST,
-  corsightLoginPort: process.env.CORSIGHT_LOGIN_PORT
+  corsightLoginPort: process.env.CORSIGHT_LOGIN_PORT,
+  corsightPort: process.env.CORSIGHT_PORT
 }))

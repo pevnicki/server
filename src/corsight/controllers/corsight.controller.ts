@@ -1,17 +1,31 @@
-import { Controller, Get, Inject } from "@nestjs/common";
+import { Controller, Delete, Get, Inject, Options, Param } from "@nestjs/common";
+import { CorsightService } from "../services/corsight.service";
+import { DeleteResult } from "typeorm";
 
 
 
-@Controller()
+@Controller('/poi')
 export class CorsightController {
 
-  constructor() {
+
+
+  constructor(private corsightService: CorsightService) {
   }
 
-  @Get('/test')
-  async getPr() {
-    return 'test'
+  @Get()
+  async getPoi(): Promise<any> {
+    return await this.corsightService.getPOIS()
   }
+
+  @Delete('/:poi_id')
+  async deletePoi(@Param('poi_id') poi_id:string): Promise<any>{
+    return await this.corsightService.deletePOI(poi_id)
+  }
+
+
+
+
+
 
 
 }
